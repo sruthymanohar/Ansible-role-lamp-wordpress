@@ -1,0 +1,10 @@
+---
+# vars file for lamp
+httpd_user: apache
+httpd_group: apache
+httpd_port: 80
+mariadb_root: "mysqlroot@123"
+domain_name: site1.sruthy123.xyz
+username: wordpress
+password: wordpress
+database: wordpress

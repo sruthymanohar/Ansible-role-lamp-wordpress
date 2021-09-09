@@ -1,0 +1,91 @@
+---
+# tasks file for lamp
+- name: "apache -  Webserver Package Installation"
+  yum:
+    name: httpd
+    state: present
+
+- name: Installing Remi Repository
+  yum:
+    name: https://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    state: present
+
+- name: Installing php
+  yum:
+    enablerepo: "remi,remi-php74"
+    name:
+      - php
+      - php-mysql
+      - php-gd
+    state: present
+  notify:
+    - restart-httpd
+
+- name: "apache  - Creating httpd.conf from template"
+  template:
+    src: httpd.conf.tmp
+    dest: /etc/httpd/conf/httpd.conf
+  notify:
+    - restart-httpd
+
+- name: "apache  - Creating Virtualhost from template"
+  template:
+    src: virtualhost.conf.tmp
+    dest: "/etc/httpd/conf.d/{{ domain_name }}.conf"
+
+  notify:
+    - restart-httpd
+
+- name: "apache  - DocumentRoot Creation"
+  file:
+    path: "/var/www/html/{{ domain_name }}"
+    state: directory
+    owner: "{{ httpd_user }}"
+    group: "{{ httpd_group }}"
+
+- name: "mariadb - Package Installation"
+  yum:
+    name:
+      - mariadb-server
+      - MySQL-python
+    state: present
+
+- name: "Restarting mariadb pacakage"
+  service:
+    name: mariadb
+    state: restarted
+    enabled: true
+
+- name: "mariadb - Setting RootPassword"
+  ignore_errors: true
+  mysql_user:
+    login_user: "root"
+    login_password: ""
+    user: "root"
+    password: "{{ mariadb_root }}"
+    host_all: true
+
+- name: "mariadb - Removing Anonymous Users"
+  mysql_user:
+    login_user: "root"
+    login_password: "{{ mariadb_root }}"
+    user: ""
+    state: absent
+    host_all: true
+
+- name: "mariadb - Creating Extra database"
+  mysql_db:
+    login_user: "root"
+    login_password: "{{ mariadb_root }}"
+    name: "{{ database }}"
+
+
+- name: "mariadb  - Creating Extra User"
+  mysql_user:
+    login_user: "root"
+    login_password: "{{ mariadb_root }}"
+    name: "{{ username }}"
+    password: "{{ password }}"
+    priv: '{{ database }}.*:ALL'
+
+
