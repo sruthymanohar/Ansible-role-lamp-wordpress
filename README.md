@@ -169,7 +169,7 @@ Here I have pasted the code in amazon.yml file.
     host_all: true
 ```
 
-In vars  we initialize the other variables for the role. The variables that we used in this project is pasted below.
+In vars  we initialize the variables required for the role. The variables that we used in this project is pasted below.
 
 ```sh
 ---
