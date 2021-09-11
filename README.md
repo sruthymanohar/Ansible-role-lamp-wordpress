@@ -22,33 +22,32 @@ Here is a simple documentation for wordpress site provision through ansible-role
 Here is the role I have created for this project,
 
 
-
-lamp
 ├── defaults
-│   └── main.yml
+│   └── main.yml
 ├── files
 ├── handlers
-│   └── main.yml
+│   └── main.yml
 ├── inventory.txt
 ├── key.pem
 ├── lamp-wordpress.yml
 ├── meta
-│   └── main.yml
+│   └── main.yml
 ├── README.md
 ├── tasks
-│   ├── amazon.yml
-│   ├── centos.yml
-│   ├── main.yml
-│   └── wordpress.yml
+│   ├── amazon.yml
+│   ├── centos.yml
+│   ├── main.yml
+│   └── wordpress.yml
 ├── templates
-│   ├── httpd.conf.tmp
-│   ├── virtualhost.conf.tmp
-│   └── wp-config.template
+│   ├── httpd.conf.temp
+│   ├── virtualhost.conf.temp
+│   └── wp-config.php.temp
 ├── tests
-│   ├── inventory
-│   └── test.yml
+│   ├── inventory
+│   └── test.yml
 └── vars
     └── main.yml
+
 
 
 
