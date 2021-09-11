@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 ## Description:
-Here is a simple documentation for wordpress site provision through ansible-role. Here I have written  this code for centos and amazon linux.  Furthermore, the ansible role is  with complete packages of the lamp stack.
+Here is a simple documentation for wordpress site provision through ansible-role. Here I have written  this role for centos and amazon linux.  Furthermore, the ansible role is  with complete packages of the lamp stack.
 
 ## Features:
 
