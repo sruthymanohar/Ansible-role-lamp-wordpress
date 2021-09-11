@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
 
 ## Description:
-Here is a simple documentation for wordpress site provision through ansible-role. Here I have written  this role for centos and amazon linux.  Furthermore, the ansible role is  with complete packages of the lamp stack.
+Here is a simple documentation for wordpress site provision through ansible-role. Here I have written  this role for centos and amazon linux. Ansible roles allow you to develop reusable automation components by grouping and encapsulating related automation artifacts, like configuration files, templates, tasks, and handlers. Here the ansible role is  with complete packages of the lamp stack.
 
 ## Features:
 
