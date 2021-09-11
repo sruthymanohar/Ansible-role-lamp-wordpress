@@ -7,7 +7,7 @@ Here is a simple documentation for wordpress site provision through ansible-role
 
 ## Features:
 
-- All packages apache, mysql,php, wordpress are installed thorugh ansibile role.
+- All packages apache, mysql,php, wordpress are installed through ansibile role.
 - Roles let you automatically load related vars, files, tasks, handlers, and other Ansible artifacts based on a known file structure. After you group your content in roles, you can easily reuse them and share them with other users
 
 ## Components and Resources:
