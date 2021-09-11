@@ -22,7 +22,7 @@ Here is a simple documentation for wordpress site provision through ansible-role
 Here is the role I have created for this project,
 
 
-[root@ip-172-31-13-2 roles]#  tree lamp
+
 lamp
 ├── defaults
 │   └── main.yml
@@ -49,6 +49,8 @@ lamp
 │   └── test.yml
 └── vars
     └── main.yml
+
+
 
 The tasks directory contains  4 task o amazon.yml , centos.yml, main,yml and wordpress.yml.
 Here wordpress.yml contain default installtion steps of wordpress.
