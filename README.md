@@ -209,6 +209,7 @@ Then run the following command to install lamp and wordpress on amazon linux and
 ```sh
 ansible-playbook -i inventory.txt lamp-wordpress.yml
 ```
+
 Conclusion:
 
 Ansible roles allow you to develop reusable automation components by grouping and encapsulating related automation artifacts, like configuration files, templates, tasks, and handlers. Because roles isolate these components, it's easier to reuse them and share them with other people.
