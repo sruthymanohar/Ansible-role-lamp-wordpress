@@ -1,0 +1,72 @@
+---
+
+- name: "Task-01: Installing Apache webserver"
+  yum:
+    name: httpd
+    state: present
+  notify:
+    - restart-httpd
+
+- name: "Task-02: custom httpd config file for httpd"
+  template:
+    src: httpd.conf.temp
+    dest: /etc/httpd/conf/httpd.conf
+  notify:
+    - restart-httpd
+
+- name: " Task-03:Creating Virtualhost from template"
+  template:
+    src: virtualhost.conf.tmp
+    dest: "/etc/httpd/conf.d/{{ domain_name }}.conf"
+  notify:
+    - restart-httpd
+
+- name: "Task-03: DocumentRoot Creation"
+  file:
+    path: "/var/www/{{ domain_name }}"
+    state: directory
+    owner: "{{ httpd_user }}"
+    group: "{{ httpd_group }}"
+  notify:
+    - restart-httpd
+
+- name: "Task-01: Installing latest php"
+  command: amazon-linux-extras install php7.4 -y
+  notify:
+    - restart-httpd
+
+- name: "Task-09:Installing mariadb"
+  yum:
+    name:
+      - mariadb-server
+    state: present
+
+- name: "Task-09:Installing mariadb"
+  yum:
+    name:
+      - mariadb-server
+      - MySQL-python
+    state: present
+
+- name: "Task-10:Restarting/enabling mysql"
+  service:
+    name: mariadb
+    state: restarted
+    enabled: true
+
+- name: "Task-11:mariadb - Setting RootPassword"
+  ignore_errors: true
+  mysql_user:
+    login_user: "root"
+    login_password: ""
+    user: "root"
+    password: "{{ root }}"
+    host_all: true
+
+- name: "Task-12:mariadb - Removing Anonymous Users"
+  mysql_user:
+    login_user: "root"
+    login_password: "{{ root }}"
+    user: ""
+    state: absent
+    host_all: true
