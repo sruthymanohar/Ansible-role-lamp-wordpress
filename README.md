@@ -19,9 +19,9 @@ Here is a simple documentation for wordpress site provision through ansible-role
 - Centos
 - Amazon linux
 
-Here is the role I have created for this project,
+Here is the role I have created for this project, the role name is "lamp"
 ```sh
-
+lamp
 ├── defaults
 │   └── main.yml
 ├── files
