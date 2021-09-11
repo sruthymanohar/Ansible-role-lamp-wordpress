@@ -20,7 +20,7 @@ Here is a simple documentation for wordpress site provision through ansible-role
 - Amazon linux
 
 Here is the role I have created for this project,
-
+```sh
 
 ├── defaults
 │   └── main.yml
@@ -47,7 +47,7 @@ Here is the role I have created for this project,
 │   └── test.yml
 └── vars
     └── main.yml
-
+```
 
 
 
